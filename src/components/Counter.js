@@ -10,7 +10,6 @@ export class Counter extends React.Component {
     this.decrement = this.decrement.bind(this);
   }
 
-  // why is it not hitting the reducers to update the state? 
   increment() {
     console.log('increment ->', this.props);
     this.props.increment();
@@ -20,16 +19,6 @@ export class Counter extends React.Component {
     console.log('decrement ->', this.props);
     this.props.decrement();
   }
-
-  // without mapDispatchToProps: 
-  // increment = () => {
-  //   console.log('increment props', this.props);
-  //   this.props.dispatch({ type: INCREMENT });
-  // }
-
-  // decrement = () => {
-  //   this.props.dispatch({ type: DECREMENT });
-  // }
 
   render() {
     return (
@@ -64,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
