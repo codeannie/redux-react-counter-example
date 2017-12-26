@@ -11,25 +11,25 @@ export class Counter extends React.Component {
   }
 
   // why is it not hitting the reducers to update the state? 
-  // increment() {
-  //   console.log('increment ->', this.props);
-  //   this.props.increment();
-  // }
+  increment() {
+    console.log('increment ->', this.props);
+    this.props.increment();
+  }
 
-  // decrement() {
-  //   console.log('decrement ->', this.props);
-  //   this.props.decrement();
-  // }
+  decrement() {
+    console.log('decrement ->', this.props);
+    this.props.decrement();
+  }
 
   // // without mapDispatchToProps: 
-  increment = () => {
-    console.log('increment props', this.props);
-    this.props.dispatch({ type: 'INCREMENT' });
-  }
+  // increment = () => {
+  //   console.log('increment props', this.props);
+  //   this.props.dispatch({ type: 'INCREMENT' });
+  // }
 
-  decrement = () => {
-    this.props.dispatch({ type: 'DECREMENT' });
-  }
+  // decrement = () => {
+  //   this.props.dispatch({ type: 'DECREMENT' });
+  // }
 
   render() {
     return (
@@ -51,17 +51,17 @@ const mapStateToProps = (state) => {
   };
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     increment() {
-//       const action = incrementAction();
-//       dispatch(action);
-//     },
-//     decrement() {
-//       const action = decrementAction();
-//       dispatch(action);
-//     }
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment() {
+      const action = incrementAction();
+      dispatch(action);
+    },
+    decrement() {
+      const action = decrementAction();
+      dispatch(action);
+    }
+  }
+}
 
 export default connect(mapStateToProps)(Counter);
